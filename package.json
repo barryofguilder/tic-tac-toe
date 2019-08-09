@@ -43,9 +43,12 @@
     "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/755ea5dbe65d91e0d650707da740aa6900d0a755.tgz",
     "ember-template-lint": "^1.5.0",
     "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-ember": "^6.0.1",
     "eslint-plugin-node": "^9.0.1",
+    "eslint-plugin-prettier": "2.6.0",
     "loader.js": "^4.7.0",
+    "prettier": "1.18.2",
     "qunit-dom": "^0.9.0",
     "tailwindcss": "^1.1.0"
   },
