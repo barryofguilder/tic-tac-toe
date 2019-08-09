@@ -4,7 +4,14 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    // Add options here
+    postcssOptions: {
+      compile: {
+        plugins: [
+          require('tailwindcss')('app/tailwind/tailwind.config.js'),
+          require('autoprefixer'),
+        ],
+      },
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
