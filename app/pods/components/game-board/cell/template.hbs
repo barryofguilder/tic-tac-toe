@@ -7,8 +7,8 @@
   {{action this.onClick}}
 >
   {{#if (eq @data.shape "X")}}
-    😍
+    <GameBoard::GamePiece @piece={{this.gameState.playerOne}} />
   {{else if (eq @data.shape "O")}}
-    💩
+    <GameBoard::GamePiece @piece={{this.gameState.playerTwo}} />
   {{/if}}
 </button>

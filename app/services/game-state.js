@@ -5,9 +5,14 @@ class Cell {
   @tracked shape = null;
 }
 
+const GAME_PIECES = ['poo', 'face heart eyes', 'silly face', 'horse rider'];
+
 export default class UserTurnService extends Service {
   @tracked cells;
   currentTurn;
+
+  @tracked playerOne = GAME_PIECES[0];
+  @tracked playerTwo = GAME_PIECES[1];
 
   newGame() {
     this.currentTurn = 'X';

@@ -1,14 +1,44 @@
-<button
-  class="
-    px-3 py-2 border border-purple-400 rounded font-semibold text-sm uppercase tracking-wide
-    hover:bg-purple-400 hover:text-purple-800
-  "
-  {{action this.newGame}}
->
-  New Game
-</button>
+<div class="flex items-center justify-between">
+  <div>
+    <button
+      class="
+        px-3 py-2 border border-purple-400 rounded font-semibold text-sm uppercase tracking-wide
+        hover:bg-purple-400 hover:text-purple-800
+        focus:outline-none focus:shadow-outline-color
+      "
+      {{action this.newGame}}
+    >
+      New Game
+    </button>
+  </div>
+  <div>
+    <span class="font-semibold">
+      Player 1
+    </span>
 
-<div class="p-4">
+    <div class="mt-1 flex">
+      <button class="text-3xl px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerOneSelection "poo")}}>💩</button>
+      <button class="text-3xl ml-2 px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerOneSelection "face heart eyes")}}>😍</button>
+      <button class="text-3xl ml-2 px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerOneSelection "silly face")}}>🤪</button>
+      <button class="text-3xl ml-2 px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerOneSelection "horse rider")}}>🏇</button>
+    </div>
+  </div>
+
+  <div>
+    <span class="font-semibold">
+      Player 2
+    </span>
+
+    <div class="mt-1 flex">
+      <button class="text-3xl px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerTwoSelection "poo")}}>💩</button>
+      <button class="text-3xl ml-2 px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerTwoSelection "face heart eyes")}}>😍</button>
+      <button class="text-3xl ml-2 px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerTwoSelection "silly face")}}>🤪</button>
+      <button class="text-3xl ml-2 px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerTwoSelection "horse rider")}}>🏇</button>
+    </div>
+  </div>
+</div>
+
+<div class="p-4 pt-8">
   {{#each (chunk 3 this.cells) as |row|}}
     <div class="flex justify-center">
       {{#each row as |cell|}}

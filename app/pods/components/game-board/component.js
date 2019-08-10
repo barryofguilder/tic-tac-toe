@@ -23,4 +23,18 @@ export default class GameBoardComponent extends Component {
   newGame() {
     this.cells = this.gameState.newGame();
   }
+
+  @action
+  playerOneSelection(selection) {
+    if (this.gameState.playerTwo !== selection) {
+      this.gameState.playerOne = selection;
+    }
+  }
+
+  @action
+  playerTwoSelection(selection) {
+    if (this.gameState.playerOne !== selection) {
+      this.gameState.playerTwo = selection;
+    }
+  }
 }
