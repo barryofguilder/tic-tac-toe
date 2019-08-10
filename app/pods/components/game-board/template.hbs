@@ -38,6 +38,14 @@
   </div>
 </div>
 
+{{#if this.gameState.gameEnded}}
+  <div class="mt-2 flex justify-center">
+    <div class="px-4 py-2 text-2xl bg-teal-300 text-teal-800 rounded shadow-lg">
+      🎉 Player {{this.gameState.currentPlayer}} wins  🎉
+    </div>
+  </div>
+{{/if}}
+
 <div class="p-4 pt-8">
   {{#each (chunk 3 this.cells) as |row|}}
     <div class="flex justify-center">

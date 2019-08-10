@@ -15,7 +15,7 @@ export default class GameBoardComponent extends Component {
 
   @action
   makeSelection(cell) {
-    cell.shape = this.gameState.currentTurn;
+    cell.player = this.gameState.currentPlayer;
     this.gameState.selectionMade();
   }
 
