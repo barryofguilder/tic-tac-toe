@@ -1,5 +1,6 @@
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import emoji from 'tic-tac-toe/utils/emoji';
 
 class Cell {
   @tracked player = null;
@@ -10,7 +11,6 @@ class Cell {
   }
 }
 
-const GAME_PIECES = ['poo', 'face heart eyes', 'silly face', 'horse rider'];
 const WIN_STATES = [
   // across win states
   [0, 1, 2],
@@ -27,8 +27,8 @@ const WIN_STATES = [
 
 export default class UserTurnService extends Service {
   @tracked cells;
-  @tracked playerOne = GAME_PIECES[0];
-  @tracked playerTwo = GAME_PIECES[1];
+  @tracked playerOne = emoji[0];
+  @tracked playerTwo = emoji[1];
   @tracked gameEnded = false;
   @tracked currentPlayer;
   @tracked winState;

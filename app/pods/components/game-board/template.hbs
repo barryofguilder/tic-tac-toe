@@ -17,10 +17,17 @@
     </span>
 
     <div class="mt-1 flex">
-      <button class="text-3xl px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerOneSelection "poo")}}>💩</button>
-      <button class="text-3xl ml-2 px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerOneSelection "face heart eyes")}}>😍</button>
-      <button class="text-3xl ml-2 px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerOneSelection "silly face")}}>🤪</button>
-      <button class="text-3xl ml-2 px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerOneSelection "horse rider")}}>🏇</button>
+      {{#each this.gamePieces as |gamePiece|}}
+        <button
+          class="
+            text-3xl px-1 {{if (eq this.gameState.playerOne gamePiece) "shadow-outline-color" ""}}
+            leading-tight focus:outline-none focus:shadow-outline-color
+          "
+          {{on "click" (fn this.playerOneSelection gamePiece)}}
+        >
+          <GameBoard::GamePiece @piece={{gamePiece}} />
+        </button>
+      {{/each}}
     </div>
   </div>
 
@@ -30,22 +37,29 @@
     </span>
 
     <div class="mt-1 flex">
-      <button class="text-3xl px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerTwoSelection "poo")}}>💩</button>
-      <button class="text-3xl ml-2 px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerTwoSelection "face heart eyes")}}>😍</button>
-      <button class="text-3xl ml-2 px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerTwoSelection "silly face")}}>🤪</button>
-      <button class="text-3xl ml-2 px-1 focus:outline-none focus:shadow-outline-color" {{on "click" (fn this.playerTwoSelection "horse rider")}}>🏇</button>
+      {{#each this.gamePieces as |gamePiece|}}
+        <button
+          class="
+            text-3xl px-1 {{if (eq this.gameState.playerTwo gamePiece) "shadow-outline-color" ""}}
+            leading-tight focus:outline-none focus:shadow-outline-color
+          "
+          {{on "click" (fn this.playerTwoSelection gamePiece)}}
+        >
+          <GameBoard::GamePiece @piece={{gamePiece}} />
+        </button>
+      {{/each}}
     </div>
   </div>
 </div>
 
 {{#if this.gameState.isTieGame}}
-  <div class="mt-2 flex justify-center">
+  <div class="mt-3 flex justify-center">
     <div class="px-4 py-2 text-2xl bg-teal-300 text-teal-800 rounded shadow-lg">
       🐈 Cat tail 🐈
     </div>
   </div>
 {{else if this.gameState.gameEnded}}
-  <div class="mt-2 flex justify-center">
+  <div class="mt-3 flex justify-center">
     <div class="px-4 py-2 text-2xl bg-teal-300 text-teal-800 rounded shadow-lg">
       🎉 Player {{this.gameState.currentPlayer}} wins  🎉
     </div>
