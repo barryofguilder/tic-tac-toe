@@ -38,7 +38,13 @@
   </div>
 </div>
 
-{{#if this.gameState.gameEnded}}
+{{#if this.gameState.isTieGame}}
+  <div class="mt-2 flex justify-center">
+    <div class="px-4 py-2 text-2xl bg-teal-300 text-teal-800 rounded shadow-lg">
+      🐈 Cat tail 🐈
+    </div>
+  </div>
+{{else if this.gameState.gameEnded}}
   <div class="mt-2 flex justify-center">
     <div class="px-4 py-2 text-2xl bg-teal-300 text-teal-800 rounded shadow-lg">
       🎉 Player {{this.gameState.currentPlayer}} wins  🎉

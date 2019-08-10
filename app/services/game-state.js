@@ -33,10 +33,14 @@ export default class UserTurnService extends Service {
   @tracked currentPlayer;
   @tracked winState;
 
+  get isTieGame() {
+    return this.gameEnded && this.winState.length === 0;
+  }
+
   newGame() {
     this.currentPlayer = 1;
     this.gameEnded = false;
-    this.winState = null;
+    this.winState = [];
     this.cells = [];
 
     for (let i = 0; i < 9; i++) {
@@ -61,8 +65,6 @@ export default class UserTurnService extends Service {
   }
 
   determineGameEnded() {
-    // TODO: Needs to check for all cells taken but no winner.
-
     let playerCells = this.cells.filter(cell => {
       return cell.player === this.currentPlayer;
     });
@@ -85,6 +87,16 @@ export default class UserTurnService extends Service {
 
     if (winState.length > 0) {
       this.winState = winState[0];
+      this.gameEnded = true;
+      return;
+    }
+
+    let allCellsPopulated = this.cells.every(cell => {
+      return cell.player !== null;
+    });
+
+    if (allCellsPopulated) {
+      this.winState = [];
       this.gameEnded = true;
     }
   }
