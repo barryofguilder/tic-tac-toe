@@ -1,0 +1,14 @@
+<button class="
+  m-1 w-32 h-32 text-center border-4 border-transparent rounded-full text-5xl
+  bg-purple-400
+  hover:bg-teal-300
+  focus:outline-none focus:shadow-outline-color"
+  aria-label="Board cell button"
+  {{action this.onClick}}
+>
+  {{#if (eq @data.shape "X")}}
+    😍
+  {{else if (eq @data.shape "O")}}
+    💩
+  {{/if}}
+</button>
