@@ -46,6 +46,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.rootURL = 'ttt';
   }
 
   return ENV;
