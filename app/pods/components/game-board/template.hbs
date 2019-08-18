@@ -1,5 +1,5 @@
-<div class="flex items-center justify-between">
-  <div>
+<div class="flex items-end justify-center">
+  <div class="px-2 sm:px-4">
     <button
       class="
         px-3 py-2 border border-purple-400 rounded font-semibold text-sm uppercase tracking-wide
@@ -11,66 +11,77 @@
       New Game
     </button>
   </div>
-  <div>
+
+  <div class="px-2 sm:px-4 flex flex-col items-center">
     <span class="font-semibold">
       Player 1
     </span>
 
     <div class="mt-1 flex">
-      {{#each this.gamePieces as |gamePiece|}}
-        <button
-          class="
-            text-3xl px-1 {{if (eq this.gameState.playerOne gamePiece) "shadow-outline-color" ""}}
-            leading-tight focus:outline-none focus:shadow-outline-color
-          "
-          {{on "click" (fn this.playerOneSelection gamePiece)}}
-        >
-          <GameBoard::GamePiece @piece={{gamePiece}} />
-        </button>
-      {{/each}}
+      <select
+        class="appearance-none px-2 text-3xl leading-normal bg-transparent shadow border border-purple-400 rounded focus:outline-none focus:shadow-outline-color"
+        {{on "change" this.playerOneSelection}}
+      >
+        {{#each this.gamePieces as |gamePiece|}}
+          <option
+            class="bg-red-500"
+            value={{gamePiece}}
+            selected={{if (eq this.gameState.playerOne gamePiece) true}}
+            disabled={{if (eq this.gameState.playerTwo gamePiece) true}}
+          >
+            <GameBoard::GamePiece @piece={{gamePiece}} />
+          </option>
+        {{/each}}
+      </select>
     </div>
   </div>
 
-  <div>
+  <div class="px-2 sm:px-4 flex flex-col items-center">
     <span class="font-semibold">
       Player 2
     </span>
 
     <div class="mt-1 flex">
-      {{#each this.gamePieces as |gamePiece|}}
-        <button
-          class="
-            text-3xl px-1 {{if (eq this.gameState.playerTwo gamePiece) "shadow-outline-color" ""}}
-            leading-tight focus:outline-none focus:shadow-outline-color
-          "
-          {{on "click" (fn this.playerTwoSelection gamePiece)}}
-        >
-          <GameBoard::GamePiece @piece={{gamePiece}} />
-        </button>
-      {{/each}}
+      <select
+        class="appearance-none px-2 text-3xl leading-normal bg-transparent shadow border border-purple-400 rounded focus:outline-none focus:shadow-outline-color"
+        {{on "change" this.playerTwoSelection}}
+      >
+        {{#each this.gamePieces as |gamePiece|}}
+          <option
+            class="bg-red-500"
+            value={{gamePiece}}
+            selected={{if (eq this.gameState.playerTwo gamePiece) true}}
+            disabled={{if (eq this.gameState.playerOne gamePiece) true}}
+          >
+            <GameBoard::GamePiece @piece={{gamePiece}} />
+          </option>
+        {{/each}}
+      </select>
     </div>
   </div>
 </div>
 
 {{#if this.gameState.isTieGame}}
-  <div class="mt-3 flex justify-center">
+  <div class="mt-6 flex justify-center">
     <div class="px-4 py-2 text-2xl bg-teal-300 text-teal-800 rounded shadow-lg">
       🐈 Cat tail 🐈
     </div>
   </div>
 {{else if this.gameState.gameEnded}}
-  <div class="mt-3 flex justify-center">
+  <div class="mt-6 flex justify-center">
     <div class="px-4 py-2 text-2xl bg-teal-300 text-teal-800 rounded shadow-lg">
       🎉 Player {{this.gameState.currentPlayer}} wins  🎉
     </div>
   </div>
 {{/if}}
 
-<div class="p-4 pt-8">
+<div class="p-4 pt-8 flex flex-col items-center">
   {{#each (chunk 3 this.cells) as |row|}}
-    <div class="flex justify-center">
+    <div class="flex justify-center items-center">
       {{#each row as |cell|}}
-        <GameBoard::Cell @data={{cell}} @onClick={{this.makeSelection}} />
+        <div class="m-1 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32">
+          <GameBoard::Cell @data={{cell}} @onClick={{this.makeSelection}} />
+        </div>
       {{/each}}
     </div>
   {{/each}}

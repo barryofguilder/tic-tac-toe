@@ -27,16 +27,20 @@ export default class GameBoardComponent extends Component {
   }
 
   @action
-  playerOneSelection(selection) {
-    if (this.gameState.playerTwo !== selection) {
-      this.gameState.playerOne = selection;
+  playerOneSelection(event) {
+    const selectedPiece = event.target.value;
+
+    if (this.gameState.playerTwo !== selectedPiece) {
+      this.gameState.playerOne = selectedPiece;
     }
   }
 
   @action
-  playerTwoSelection(selection) {
-    if (this.gameState.playerOne !== selection) {
-      this.gameState.playerTwo = selection;
+  playerTwoSelection(event) {
+    const selectedPiece = event.target.value;
+
+    if (this.gameState.playerOne !== selectedPiece) {
+      this.gameState.playerTwo = selectedPiece;
     }
   }
 }
