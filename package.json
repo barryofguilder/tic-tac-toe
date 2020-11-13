@@ -1,6 +1,6 @@
 {
   "name": "tic-tac-toe",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "Small description for tic-tac-toe goes here",
   "repository": "",
@@ -21,9 +21,10 @@
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
+    "@fullhuman/postcss-purgecss": "^3.0.0",
     "@glimmer/component": "^1.0.2",
     "@glimmer/tracking": "^1.0.2",
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.6.0",
@@ -33,7 +34,7 @@
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-htmlbars": "^5.3.1",
     "ember-cli-inject-live-reload": "^2.0.2",
-    "ember-cli-postcss": "^5.0.0",
+    "ember-cli-postcss": "^6.0.1",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.0",
     "ember-composable-helpers": "^4.2.2",
@@ -60,7 +61,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "1.18.2",
     "qunit-dom": "^1.5.0",
-    "tailwindcss": "^1.1.0"
+    "tailwindcss": "^1.9.6"
   },
   "engines": {
     "node": "10.* || >= 12"

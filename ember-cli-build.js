@@ -2,6 +2,24 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+const { join } = require('path');
+const isProduction = EmberApp.env() === 'production';
+const purgeCSS = {
+  module: require('@fullhuman/postcss-purgecss'),
+  options: {
+    content: [
+      // Specify all paths in the application that include Tailwind classes.
+      join(__dirname, 'app', 'index.html'),
+      join(__dirname, 'app', 'styles', '**', '*.css'),
+      join(__dirname, 'app', 'pods', '**', '*.hbs'),
+      join(__dirname, 'app', 'pods', '**', '*.js'),
+    ],
+
+    // Include any special characters you're using in this regular expression.
+    defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+  },
+};
+
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     'asset-cache': {
@@ -10,7 +28,12 @@ module.exports = function(defaults) {
 
     postcssOptions: {
       compile: {
-        plugins: [require('tailwindcss')('app/tailwind.config.js'), require('autoprefixer')],
+        plugins: [
+          require('tailwindcss')('app/tailwind.config.js'),
+          require('autoprefixer'),
+          // Only apply the purge CSS plugin to the production builds.
+          ...(isProduction ? [purgeCSS] : []),
+        ],
       },
     },
   });
