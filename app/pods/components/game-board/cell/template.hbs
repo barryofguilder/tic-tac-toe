@@ -1,10 +1,13 @@
-<button class="
-  w-full h-full text-center border-4 border-transparent rounded-full text-5xl sm:text-6xl
-  {{if this.isWinCell "bg-teal-300" "bg-purple-400"}}
-  {{if (eq this.gameState.gameEnded false) "hover:bg-teal-300" ""}}
-  focus:outline-none focus:shadow-outline-color"
+<button
+  type="button"
+  class="
+    w-full h-full text-center border-4 border-transparent rounded-full text-5xl sm:text-6xl
+    {{if this.isWinCell "bg-teal-300" "bg-purple-400"}}
+    {{if (eq this.gameState.gameEnded false) "hover:bg-teal-300" ""}}
+    focus:outline-none focus:shadow-outline-color
+  "
   aria-label="Board cell button"
-  {{action this.onClick}}
+  {{on "click" this.onClick}}
 >
   {{#if (eq @data.player 1)}}
     <GameBoard::GamePiece @piece={{this.gameState.playerOne}} />

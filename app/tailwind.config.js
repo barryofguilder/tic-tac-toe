@@ -1,5 +1,8 @@
-// eslint-disable-next-line no-undef
 module.exports = {
+  future: {
+    removeDeprecatedGapUtilities: true,
+  },
+  purge: [],
   theme: {
     extend: {
       boxShadow: theme => ({
