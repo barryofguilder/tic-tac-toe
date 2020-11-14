@@ -47,7 +47,13 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+* Run `yarn build` to create the production bundle.
+* Open the generated `index.html` file by and modify the line at the bottom where it's registering the
+service worker and change the file path to the following:
+  * From `tttsw-registration` to `/ttt/sw-registration-`
+* Open the service worker JS file and change the following:
+  * From `register("tttsw.js",{scope:"ttt"})` to `register("sw.js")`
+* Copy the files to the FTP server.
 
 ## Further Reading / Useful Links
 
