@@ -12,18 +12,18 @@ const purgeCSS = {
       join(__dirname, 'app', 'index.html'),
       join(__dirname, 'app', 'styles', '**', '*.css'),
       join(__dirname, 'app', 'pods', '**', '*.hbs'),
-      join(__dirname, 'app', 'pods', '**', '*.js'),
+      join(__dirname, 'app', 'pods', '**', '*.js')
     ],
 
     // Include any special characters you're using in this regular expression.
-    defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
-  },
+    defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+  }
 };
 
 module.exports = function(defaults) {
-  let app = new EmberApp(defaults, {
+  const app = new EmberApp(defaults, {
     'asset-cache': {
-      include: ['assets/**/*'],
+      include: ['assets/**/*']
     },
 
     postcssOptions: {
@@ -32,10 +32,10 @@ module.exports = function(defaults) {
           require('tailwindcss')('app/tailwind.config.js'),
           require('autoprefixer'),
           // Only apply the purge CSS plugin to the production builds.
-          ...(isProduction ? [purgeCSS] : []),
-        ],
-      },
-    },
+          ...(isProduction ? [purgeCSS] : [])
+        ]
+      }
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated
