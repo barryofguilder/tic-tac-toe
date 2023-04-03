@@ -22,7 +22,7 @@ const WIN_STATES = [
   [2, 5, 8],
   // diagonal win states
   [0, 4, 8],
-  [2, 4, 6]
+  [2, 4, 6],
 ];
 
 export default class UserTurnService extends Service {
@@ -68,20 +68,20 @@ export default class UserTurnService extends Service {
   }
 
   determineGameEnded() {
-    const playerCells = this.cells.filter(cell => {
+    const playerCells = this.cells.filter((cell) => {
       return cell.player === this.currentPlayer;
     });
 
-    const winState = WIN_STATES.filter(state => {
-      let cell1 = playerCells.some(cell => {
+    const winState = WIN_STATES.filter((state) => {
+      let cell1 = playerCells.some((cell) => {
         return cell.index === state[0];
       });
 
-      let cell2 = playerCells.some(cell => {
+      let cell2 = playerCells.some((cell) => {
         return cell.index === state[1];
       });
 
-      let cell3 = playerCells.some(cell => {
+      let cell3 = playerCells.some((cell) => {
         return cell.index === state[2];
       });
 
@@ -94,7 +94,7 @@ export default class UserTurnService extends Service {
       return;
     }
 
-    const allCellsPopulated = this.cells.every(cell => {
+    const allCellsPopulated = this.cells.every((cell) => {
       return cell.player !== null;
     });
 
