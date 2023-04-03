@@ -6,6 +6,7 @@ module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     'asset-cache': {
       include: ['assets/**/*'],
+      prepend: 'https://barryofguilder.com/tic-tac-toe/',
     },
 
     postcssOptions: {
