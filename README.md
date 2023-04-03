@@ -1,7 +1,6 @@
-# tic-tac-toe
+# Tic Tac Toe
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+The game of tic tac toe.
 
 ## Prerequisites
 
