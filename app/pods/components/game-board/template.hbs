@@ -2,11 +2,7 @@
   <div class="px-2 sm:px-4">
     <button
       type="button"
-      class="
-        px-3 py-2 border border-violet-400 rounded font-semibold text-sm uppercase tracking-wide
-        hover:bg-violet-400 hover:text-violet-800
-        focus:outline-none focus:shadow-outline-color
-      "
+      class="px-3 py-2 border border-violet-400 rounded font-semibold text-sm uppercase tracking-wide hover:bg-violet-400 hover:text-violet-800 focus:outline-none focus:shadow-outline-color"
       {{on "click" this.newGame}}
     >
       New Game
@@ -71,7 +67,9 @@
 {{else if this.gameState.gameEnded}}
   <div class="mt-6 flex justify-center">
     <div class="px-4 py-2 text-2xl bg-teal-300 text-teal-800 rounded shadow-lg">
-      🎉 Player {{this.gameState.currentPlayer}} wins  🎉
+      🎉 Player
+      {{this.gameState.currentPlayer}}
+      wins 🎉
     </div>
   </div>
 {{/if}}

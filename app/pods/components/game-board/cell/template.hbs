@@ -1,11 +1,9 @@
 <button
   type="button"
-  class="
-    w-full h-full text-center border-4 border-transparent rounded-full text-5xl sm:text-6xl
-    {{if this.isWinCell "bg-teal-300" "bg-violet-400"}}
-    {{if (eq this.gameState.gameEnded false) "hover:bg-teal-300" ""}}
-    focus:outline-none focus:shadow-outline-color
-  "
+  class="w-full h-full text-center border-4 border-transparent rounded-full text-5xl sm:text-6xl
+    {{if this.isWinCell 'bg-teal-300' 'bg-violet-400'}}
+    {{if (eq this.gameState.gameEnded false) 'hover:bg-teal-300' ''}}
+    focus:outline-none focus:shadow-outline-color"
   aria-label="Board cell button"
   {{on "click" this.onClick}}
 >

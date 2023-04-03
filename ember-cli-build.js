@@ -2,10 +2,10 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     'asset-cache': {
-      include: ['assets/**/*']
+      include: ['assets/**/*'],
     },
 
     postcssOptions: {
@@ -13,9 +13,9 @@ module.exports = function(defaults) {
         plugins: [require('tailwindcss')('app/tailwind.config.js'), require('autoprefixer')],
         // you need this otherwise we won't recompile on changes in the `app`-tree
         includePaths: ['app'],
-        cacheInclude: [/.*\.(css|hbs|html|js)$/, /.tailwind\.config\.js$/]
-      }
-    }
+        cacheInclude: [/.*\.(css|hbs|html|js)$/, /.tailwind\.config\.js$/],
+      },
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
