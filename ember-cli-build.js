@@ -6,7 +6,6 @@ module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     'asset-cache': {
       include: ['assets/**/*'],
-      prepend: 'https://barryofguilder.com/tic-tac-toe/',
     },
 
     postcssOptions: {
@@ -16,6 +15,10 @@ module.exports = function (defaults) {
         includePaths: ['app'],
         cacheInclude: [/.*\.(css|hbs|html|js)$/, /.tailwind\.config\.js$/],
       },
+    },
+
+    'ember-service-worker': {
+      registrationStrategy: 'inline',
     },
   });
 
