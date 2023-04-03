@@ -42,7 +42,7 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-    ENV.rootURL = 'ttt';
+    // here you can enable a production-specific feature
   }
 
   return ENV;
