@@ -8,7 +8,7 @@ module.exports = function (/* environment, appConfig */) {
     name: 'Tic Tac Toe',
     short_name: 'Tic Tac Toe',
     description: 'The game of tic tac toe.',
-    start_url: '/',
+    start_url: '/tic-tac-toe',
     display: 'standalone',
     background_color: '#553C9A',
     theme_color: '#553C9A',
