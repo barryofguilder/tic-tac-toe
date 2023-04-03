@@ -10,12 +10,13 @@
   </div>
 
   <div class="px-2 sm:px-4 flex flex-col items-center">
-    <span class="font-semibold">
+    <label for="player-1" class="font-semibold">
       Player 1
-    </span>
+    </label>
 
     <div class="mt-1 flex">
       <select
+        id="player-1"
         class="appearance-none px-2 text-3xl leading-normal bg-transparent shadow border border-violet-400 rounded focus:outline-none focus:shadow-outline-color"
         {{on "change" this.playerOneSelection}}
       >
@@ -34,12 +35,13 @@
   </div>
 
   <div class="px-2 sm:px-4 flex flex-col items-center">
-    <span class="font-semibold">
+    <label for="player-2" class="font-semibold">
       Player 2
-    </span>
+    </label>
 
     <div class="mt-1 flex">
       <select
+        id="player-2"
         class="appearance-none px-2 text-3xl leading-normal bg-transparent shadow border border-violet-400 rounded focus:outline-none focus:shadow-outline-color"
         {{on "change" this.playerTwoSelection}}
       >
