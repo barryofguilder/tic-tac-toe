@@ -8,15 +8,6 @@ module.exports = function (defaults) {
       include: ['assets/**/*'],
     },
 
-    postcssOptions: {
-      compile: {
-        plugins: [require('tailwindcss')('app/tailwind.config.js'), require('autoprefixer')],
-        // you need this otherwise we won't recompile on changes in the `app`-tree
-        includePaths: ['app'],
-        cacheInclude: [/.*\.(css|hbs|html|js)$/, /.tailwind\.config\.js$/],
-      },
-    },
-
     'ember-service-worker': {
       registrationStrategy: 'inline',
     },
@@ -29,5 +20,26 @@ module.exports = function (defaults) {
         package: 'qunit',
       },
     ],
+    packagerOptions: {
+      webpackConfig: {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: [
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    postcssOptions: {
+                      config: 'postcss.config.js',
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      },
+    },
   });
 };
