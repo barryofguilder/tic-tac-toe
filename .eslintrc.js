@@ -8,9 +8,7 @@ module.exports = {
     sourceType: 'module',
     requireConfigFile: false,
     babelOptions: {
-      plugins: [
-        ['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }],
-      ],
+      plugins: [['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }]],
     },
   },
   plugins: ['ember'],
@@ -27,8 +25,8 @@ module.exports = {
         './.stylelintrc.js',
         './.template-lintrc.js',
         './ember-cli-build.js',
+        './tailwind.config.js',
         './testem.js',
-        './app/tailwind.config.js',
         './blueprints/*/index.js',
         './config/**/*.js',
         './lib/*/index.js',
