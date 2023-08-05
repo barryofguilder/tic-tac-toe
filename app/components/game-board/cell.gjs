@@ -21,13 +21,13 @@ export default class GameBoardCellComponent extends Component {
 
   <template>
     <button
-      type="button"
-      class="h-full w-full rounded-full border-4 border-transparent text-center text-5xl sm:text-6xl
-        {{if this.isWinCell 'bg-teal-300' 'bg-violet-400'}}
-        {{if (eq this.gameState.gameEnded false) 'hover:bg-teal-300' ''}}
-        focus:outline-none focus:ring focus:ring-teal-400"
-      aria-label="Board cell button"
-      {{on "click" this.onClick}}
+      type='button'
+      class='h-full w-full rounded-full border-4 border-transparent text-center text-5xl sm:text-6xl
+        {{if this.isWinCell "bg-teal-300" "bg-violet-400"}}
+        {{if (eq this.gameState.gameEnded false) "hover:bg-teal-300" ""}}
+        focus:outline-none focus:ring focus:ring-teal-400'
+      aria-label='Board cell button'
+      {{on 'click' this.onClick}}
     >
       {{#if (eq @data.player 1)}}
         <GamePiece @piece={{this.gameState.playerOne}} />
