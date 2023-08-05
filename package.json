@@ -90,7 +90,7 @@
     "edition": "octane"
   },
   "engines": {
-    "node": "16.* || >= 18"
+    "node": "18.17.0"
   },
   "volta": {
     "node": "18.17.0"
