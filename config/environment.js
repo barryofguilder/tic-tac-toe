@@ -3,7 +3,6 @@
 module.exports = function (environment) {
   const ENV = {
     modulePrefix: 'tic-tac-toe',
-    podModulePrefix: 'tic-tac-toe/pods',
     environment,
     rootURL: '/',
     locationType: 'history',
