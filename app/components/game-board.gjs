@@ -49,31 +49,31 @@ export default class GameBoardComponent extends Component {
   }
 
   <template>
-    <div class="flex items-end justify-center">
-      <div class="px-2 sm:px-4">
+    <div class='flex items-end justify-center'>
+      <div class='px-2 sm:px-4'>
         <button
-          type="button"
-          class="rounded border border-violet-400 px-3 py-2 text-sm font-semibold uppercase tracking-wide hover:bg-violet-400 hover:text-violet-800 focus:outline-none focus:ring focus:ring-teal-400"
-          {{on "click" this.newGame}}
+          type='button'
+          class='rounded border border-violet-400 px-3 py-2 text-sm font-semibold uppercase tracking-wide hover:bg-violet-400 hover:text-violet-800 focus:outline-none focus:ring focus:ring-teal-400'
+          {{on 'click' this.newGame}}
         >
           New Game
         </button>
       </div>
 
-      <div class="flex flex-col items-center px-2 sm:px-4">
-        <label for="player-1" class="font-semibold">
+      <div class='flex flex-col items-center px-2 sm:px-4'>
+        <label for='player-1' class='font-semibold'>
           Player 1
         </label>
 
-        <div class="mt-1 flex">
+        <div class='mt-1 flex'>
           <select
-            id="player-1"
-            class="appearance-none rounded border border-violet-400 bg-transparent px-2 text-3xl leading-normal shadow focus:outline-none focus:ring focus:ring-teal-400"
-            {{on "change" this.playerOneSelection}}
+            id='player-1'
+            class='appearance-none rounded border border-violet-400 bg-transparent px-2 text-3xl leading-normal shadow focus:outline-none focus:ring focus:ring-teal-400'
+            {{on 'change' this.playerOneSelection}}
           >
             {{#each emoji as |gamePiece|}}
               <option
-                class="bg-red-500"
+                class='bg-red-500'
                 value={{gamePiece}}
                 selected={{if (eq this.gameState.playerOne gamePiece) true}}
                 disabled={{if (eq this.gameState.playerTwo gamePiece) true}}
@@ -85,20 +85,20 @@ export default class GameBoardComponent extends Component {
         </div>
       </div>
 
-      <div class="flex flex-col items-center px-2 sm:px-4">
-        <label for="player-2" class="font-semibold">
+      <div class='flex flex-col items-center px-2 sm:px-4'>
+        <label for='player-2' class='font-semibold'>
           Player 2
         </label>
 
-        <div class="mt-1 flex">
+        <div class='mt-1 flex'>
           <select
-            id="player-2"
-            class="appearance-none rounded border border-violet-400 bg-transparent px-2 text-3xl leading-normal shadow focus:outline-none focus:ring focus:ring-teal-400"
-            {{on "change" this.playerTwoSelection}}
+            id='player-2'
+            class='appearance-none rounded border border-violet-400 bg-transparent px-2 text-3xl leading-normal shadow focus:outline-none focus:ring focus:ring-teal-400'
+            {{on 'change' this.playerTwoSelection}}
           >
             {{#each emoji as |gamePiece|}}
               <option
-                class="bg-red-500"
+                class='bg-red-500'
                 value={{gamePiece}}
                 selected={{if (eq this.gameState.playerTwo gamePiece) true}}
                 disabled={{if (eq this.gameState.playerOne gamePiece) true}}
@@ -112,14 +112,14 @@ export default class GameBoardComponent extends Component {
     </div>
 
     {{#if this.gameState.isTieGame}}
-      <div class="mt-6 flex justify-center">
-        <div class="rounded bg-teal-300 px-4 py-2 text-2xl text-teal-800 shadow-lg">
+      <div class='mt-6 flex justify-center'>
+        <div class='rounded bg-teal-300 px-4 py-2 text-2xl text-teal-800 shadow-lg'>
           🐈 Cat tail 🐈
         </div>
       </div>
     {{else if this.gameState.gameEnded}}
-      <div class="mt-6 flex justify-center">
-        <div class="rounded bg-teal-300 px-4 py-2 text-2xl text-teal-800 shadow-lg">
+      <div class='mt-6 flex justify-center'>
+        <div class='rounded bg-teal-300 px-4 py-2 text-2xl text-teal-800 shadow-lg'>
           🎉 Player
           {{this.gameState.currentPlayer}}
           wins 🎉
@@ -127,11 +127,11 @@ export default class GameBoardComponent extends Component {
       </div>
     {{/if}}
 
-    <div class="flex flex-col items-center p-4 pt-8">
+    <div class='flex flex-col items-center p-4 pt-8'>
       {{#each (chunk 3 this.cells) as |row|}}
-        <div class="flex items-center justify-center">
+        <div class='flex items-center justify-center'>
           {{#each row as |cell|}}
-            <div class="m-1 h-20 w-20 sm:h-24 sm:w-24 md:h-32 md:w-32">
+            <div class='m-1 h-20 w-20 sm:h-24 sm:w-24 md:h-32 md:w-32'>
               <GameBoardCell @data={{cell}} @onClick={{this.makeSelection}} />
             </div>
           {{/each}}
