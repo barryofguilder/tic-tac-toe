@@ -91,9 +91,9 @@
     "edition": "octane"
   },
   "engines": {
-    "node": "18.17.0"
+    "node": "20.10.0"
   },
   "volta": {
-    "node": "18.17.0"
+    "node": "20.10.0"
   }
 }
